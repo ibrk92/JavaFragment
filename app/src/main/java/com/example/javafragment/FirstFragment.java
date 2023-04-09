@@ -1,0 +1,35 @@
+package com.example.javafragment;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+public class FirstFragment extends Fragment {
+
+    //Fragment'da gorunumlerle calisabilmen icin OnCreateView'i  import etmen gerekir.
+
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Ornegin first fragmentteki textimize ulasmak isteyelim ancak buna fragmentlerde her zaman yaptigimiz gibi yapamiyoruz.
+                // Bu nedenle fragmentimiz icindeki viewlere ulasabilmek icin ViewGroup tanimlaman gerekiyor !!
+
+        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_first, container, false);
+
+        TextView myText1 = viewGroup.findViewById(R.id.textView1);
+        myText1.setText("1st Fragment Example");
+
+
+        return viewGroup;
+
+        //return inflater.inflate(R.layout.fragment_first, container, false);
+
+    }
+}
